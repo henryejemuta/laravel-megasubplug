@@ -1,0 +1,63 @@
+{
+    "name": "henryejemuta/laravel-megasubplug",
+    "description": "A laravel package to seamlessly integrate MegaSup Plug API into your laravel application. The MegaSup Plug API allows you to integrate all virtual top-up and bills payment services available on the MegaSup platform with your application (websites, desktop apps & mobile apps). You can also start your own VTU business by integrating this API and resell MegaSup services in Nigeria.",
+    "keywords": [
+        "henryejemuta",
+        "laravel-megasubplug",
+        "MegaSubPlug",
+        "payment",
+        "bill payment",
+        "Utility Bills",
+        "Cable Bills",
+        "Airtime",
+        "Data Bundle",
+        "Nigeria"
+    ],
+    "homepage": "https://github.com/henryejemuta/laravel-megasubplug",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Henry Ejemuta",
+            "email": "henry.ejemuta@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^8.0|^9.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "HenryEjemuta\\LaravelMegaSubPlug\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HenryEjemuta\\LaravelMegaSubPlug\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HenryEjemuta\\LaravelMegaSubPlug\\MegaSubPlugServiceProvider"
+            ],
+            "aliases": {
+                "LaravelMegaSubPlug": "HenryEjemuta\\LaravelMegaSubPlug\\LaravelMegaSubPlugFacade"
+            }
+        }
+    }
+}

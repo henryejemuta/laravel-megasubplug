@@ -1,0 +1,15 @@
+build
+docs
+vendor
+coverage
+
+
+# JetBrain IDEs related
+*.iml
+*.ipr
+*.iws
+.idea
+.idea/
+
+#VSCode
+.vscode/
