@@ -1,4 +1,4 @@
-# Laravel MegaSup
+# Laravel MegaSubPlug
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/henryejemuta/laravel-megasubplugplug.svg?style=flat-square)](https://packagist.org/packages/henryejemuta/laravel-megasupplug)
 [![Latest Stable Version](https://poser.pugx.org/henryejemuta/laravel-megasupplug/v/stable)](https://packagist.org/packages/henryejemuta/laravel-megasupplug)
@@ -6,13 +6,13 @@
 [![License](https://poser.pugx.org/henryejemuta/laravel-megasupplug/license)](https://packagist.org/packages/henryejemuta/laravel-megasupplug)
 [![Quality Score](https://img.shields.io/scrutinizer/g/henryejemuta/laravel-megasupplug.svg?style=flat-square)](https://scrutinizer-ci.com/g/henryejemuta/laravel-megasupplug)
 
-## What is MegaSup
-The MegaSup API allows you to integrate all virtual top-up and bills payment services available on the MegaSup platform with your application (websites, desktop apps & mobile apps). You can also start your own VTU business by integrating this API and resell MegaSup services in Nigeria.
+## What is MegaSubPlug
+The MegaSubPlug API allows you to integrate all virtual top-up and bills payment services available on the MegaSubPlug platform with your application (websites, desktop apps & mobile apps). You can also start your own VTU business by integrating this API and resell MegaSubPlug services in Nigeria.
 
-## What is Laravel MegaSup
-Laravel MegaSup is a laravel package to seamlessly integrate MegaSup api within your laravel application.
+## What is Laravel MegaSubPlug
+Laravel MegaSubPlug is a laravel package to seamlessly integrate MegaSubPlug api within your laravel application.
 
-Create a MegaSup Account [Sign Up](https://megasubplug.com/Register/).
+Create a MegaSubPlug Account [Sign Up](https://megasubplug.com/Register/).
 
 Look up MegaSubPlug API Documentation [API Documentation](./mega-sub-plug-apidocs.pdf).
 The Updated Mega-Sub Api Documentation is now part of the repository, as there seems to be broken links finding it on their dashboard
@@ -22,10 +22,10 @@ The Updated Mega-Sub Api Documentation is now part of the repository, as there s
 You can install the package via composer:
 
 ```bash
-composer require henryejemuta/laravel-megasupplug
+composer require henryejemuta/laravel-megasubplug
 ```
 
-Publish MegaSup configuration file, migrations as well as set default details in .env file:
+Publish MegaSubPlug configuration file, migrations as well as set default details in .env file:
 
 ```bash
 php artisan megasubplug:init
@@ -33,21 +33,21 @@ php artisan megasubplug:init
 
 ## Usage
 
-**Important: Kindly use the ``$response->successful()`` to check the response state before proceeding with working with the response and gracefully throw and handle the MegaSupErrorException on failed request**
+**Important: Kindly use the ``$response->successful()`` to check the response state before proceeding with working with the response and gracefully throw and handle the MegaSubPlugErrorException on failed request**
 
-Before initiating any transaction kindly check your balance to confirm you have enough MegaSup balance to handle the transaction
+Before initiating any transaction kindly check your balance to confirm you have enough MegaSubPlug balance to handle the transaction
 
-The Laravel MegaSup Package is quite easy to use via the MegaSup facade
+The Laravel MegaSubPlug Package is quite easy to use via the MegaSubPlug facade
 ``` php
-use HenryEjemuta\LaravelMegaSubPlug\Facades\MegaSup;
+use HenryEjemuta\LaravelMegaSubPlug\Facades\MegaSubPlug;
 use HenryEjemuta\LaravelMegaSubPlug\Classes\MegaSubPlugResponse;
 
 ...
 
 //To buy Airtime
 try{
-    $response = MegaSupFacade::buyAirtime(NetworkEnum::getNetwork('mtn'), 100, '08134567890');
-} catch (MegaSupErrorException $exception) {
+    $response = MegaSubPlugFacade::buyAirtime(NetworkEnum::getNetwork('mtn'), 100, '08134567890');
+} catch (MegaSubPlugErrorException $exception) {
     Log::error($exception->getMessage() . "\n\r" . $exception->getCode());
 }
 
@@ -78,8 +78,8 @@ HenryEjemuta\LaravelMegaSubPlug\Classes\MegaSubPlugResponse {#1423 ▼
 
 //To buy Data Bundle
 try{
-    $response = MegaSupFacade::buyData(MegaSupNetworkEnum::getNetwork("mtn"), 7, "08134567890");
-} catch (MegaSupErrorException $exception) {
+    $response = MegaSubPlugFacade::buyData(MegaSubPlugNetworkEnum::getNetwork("mtn"), 7, "08134567890");
+} catch (MegaSubPlugErrorException $exception) {
     Log::error($exception->getMessage() . "\n\r" . $exception->getCode());
 }
 
@@ -116,7 +116,7 @@ Find an overview of all method with comment on what they do and expected argumen
     /**
      * Get Your MegaSub account details including available balance
      * @return MegaSubPlugResponse
-     * @throws MegaSupErrorException
+     * @throws MegaSubPlugErrorException
      */
     public function checkUserDetails(): MegaSubPlugResponse
 
@@ -127,12 +127,12 @@ Find an overview of all method with comment on what they do and expected argumen
      * @param bool $portedNumber
      * @param string $airtimeType
      * @return MegaSubPlugResponse
-     * @throws MegaSupErrorException
+     * @throws MegaSubPlugErrorException
      */
     public function buyAirtime(NetworkEnum $mobileNetwork, int $amount, $phoneNumber, bool $portedNumber = true, string $airtimeType = "VTU"): MegaSubPlugResponse
 
     /**
-     * MegaSup API Transaction handler to access:
+     * MegaSubPlug API Transaction handler to access:
      * Transaction()->getAllDataTransaction(): MegaSubPlugResponse
      * Transaction()->queryDataTransaction(int $txnId): MegaSubPlugResponse
      * Transaction()->queryAirtimeTransaction(int $txnId): MegaSubPlugResponse
@@ -159,7 +159,7 @@ Find an overview of all method with comment on what they do and expected argumen
      * @param string $phoneNumber
      * @param bool $portedNumber
      * @return MegaSubPlugResponse
-     * @throws MegaSupErrorException
+     * @throws MegaSubPlugErrorException
      */
     public function buyData(NetworkEnum $network, string $plan, string $phoneNumber, bool $portedNumber = true): MegaSubPlugResponse
 
